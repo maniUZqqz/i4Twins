@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ایجاد چت جدید</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- آیکون‌ها -->
+</head>
+<body class="bg-gradient-to-r from-purple-100 via-blue-100 to-indigo-100 min-h-screen py-16">
+<div class="container mx-auto p-8 max-w-4xl bg-white rounded-3xl shadow-2xl">
+    <h1 class="text-4xl font-extrabold text-center text-blue-800 mb-10">ایجاد چت جدید</h1>
+
+    <form method="POST" enctype="multipart/form-data" class="space-y-10">
+        {% csrf_token %}
+        <div class="space-y-2">
+            <label for="name" class="text-lg font-medium text-gray-700">نام چت</label>
+            <div class="relative">
+                <input type="text" id="name" name="name" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+                {{ chat_form.name }}
+                <span class="absolute top-3 right-4 text-blue-500 text-xl">
+                        <i class="fas fa-comments"></i>
+                    </span>
+            </div>
+        </div>
+
+        <!-- فیلد برای URL‌ها -->
+        <div id="url-inputs" class="space-y-4">
+            <label for="url" class="text-lg font-medium text-gray-700">URL‌ها</label>
+            <input type="url" name="url" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+            {{ chat_form.url }}
+        </div>
+
+        <!-- دکمه برای اضافه کردن URL بیشتر -->
+        <button type="button" id="add-url-btn" class="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-xl hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-700 transition duration-300 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            <span>افزودن URL بیشتر</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+        </button>
+
+        <!-- فیلد برای آپلود فایل‌ها -->
+        <div id="file-inputs" class="space-y-4">
+            <label for="file" class="text-lg font-medium text-gray-700">فایل‌ها</label>
+            <input type="file" name="file" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+        </div>
+
+        <!-- دکمه برای اضافه کردن فایل بیشتر -->
+        <button type="button" id="add-file-btn" class="w-full py-3 px-6 bg-gradient-to-r from-green-500 to-teal-600 text-white rounded-lg shadow-xl hover:bg-gradient-to-r hover:from-green-600 hover:to-teal-700 transition duration-300 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+            <span>افزودن فایل بیشتر</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+        </button>
+
+        <!-- دکمه برای ارسال فرم -->
+        <button type="submit" class="w-full py-4 px-6 bg-gradient-to-r from-indigo-600 to-blue-700 text-white font-semibold rounded-xl shadow-xl hover:bg-gradient-to-r hover:from-indigo-700 hover:to-blue-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            ایجاد چت
+        </button>
+    </form>
+</div>
+
+<script>
+    // افزودن فیلد فایل جدید
+    document.getElementById('add-file-btn').addEventListener('click', function() {
+        var newFileInput = document.createElement('input');
+        newFileInput.type = 'file';
+        newFileInput.name = 'file';  // نام ثابت برای همه فیلدها
+        newFileInput.classList.add('w-full', 'p-4', 'border', 'border-gray-300', 'rounded-lg', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-500', 'mb-4', 'transition-all', 'hover:shadow-lg');
+
+        // اضافه کردن فیلد جدید به div موجود
+        document.getElementById('file-inputs').appendChild(newFileInput);
+    });
+
+    // افزودن فیلد URL جدید
+    document.getElementById('add-url-btn').addEventListener('click', function() {
+        var newUrlInput = document.createElement('input');
+        newUrlInput.type = 'url';
+        newUrlInput.name = 'url';  // نام ثابت برای همه فیلدها
+        newUrlInput.classList.add('w-full', 'p-4', 'border', 'border-gray-300', 'rounded-lg', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-500', 'mb-4', 'transition-all', 'hover:shadow-lg');
+
+        // اضافه کردن فیلد جدید به div موجود
+        document.getElementById('url-inputs').appendChild(newUrlInput);
+    });
+</script>
+</body>
+</html>

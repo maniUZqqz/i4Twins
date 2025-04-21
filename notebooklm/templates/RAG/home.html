@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}چت‌ها{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+{% endblock %}
+
+{% block body %}
+<div class="bg-blue-50">
+
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-semibold text-blue-800 mb-6">چت‌ها</h1>
+
+        <div class="space-y-4">
+            {% for chat in chats %}
+                <div class="flex justify-between items-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <span class="text-lg font-medium text-gray-700">{{ chat.name }}</span>
+                    <a href="{% url 'chat_detail' chat.id %}" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                        ورود به چت
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="mt-8 text-center">
+            <a href="{% url 'create_chat' %}" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">ایجاد چت جدید</a>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

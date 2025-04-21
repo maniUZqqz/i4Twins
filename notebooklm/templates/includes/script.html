@@ -1,0 +1,261 @@
+
+<script type='text/javascript'>
+    const lazyloadRunObserver = () => {
+        const lazyloadBackgrounds = document.querySelectorAll(`.e-con.e-parent:not(.e-lazyloaded)`);
+        const lazyloadBackgroundObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    let lazyloadBackground = entry.target;
+                    if (lazyloadBackground) {
+                        lazyloadBackground.classList.add('e-lazyloaded');
+                    }
+                    lazyloadBackgroundObserver.unobserve(entry.target);
+                }
+            });
+        }, {rootMargin: '200px 0px 200px 0px'});
+        lazyloadBackgrounds.forEach((lazyloadBackground) => {
+            lazyloadBackgroundObserver.observe(lazyloadBackground);
+        });
+    };
+    const events = [
+        'DOMContentLoaded',
+        'elementor/lazyload/observe',
+    ];
+    events.forEach((event) => {
+        document.addEventListener(event, lazyloadRunObserver);
+    });
+</script>
+<link rel='stylesheet' id='parallaxsome-p-font-css' href='//fonts.googleapis.com/css?family=Open+Sans&#038;ver=6.7.1'
+      type='text/css' media='all'/>
+<link rel='stylesheet' id='parallaxsome-h1-font-css' href='//fonts.googleapis.com/css?family=Lato&#038;ver=6.7.1'
+      type='text/css' media='all'/>
+<link rel='stylesheet' id='parallaxsome-h2-font-css' href='//fonts.googleapis.com/css?family=BenchNine&#038;ver=6.7.1'
+      type='text/css' media='all'/>
+<link rel='stylesheet' id='parallaxsome-h3-font-css'
+      href='//fonts.googleapis.com/css?family=Source+Sans+Pro&#038;ver=6.7.1' type='text/css' media='all'/>
+<link rel='stylesheet' id='parallaxsome-h4-font-css' href='//fonts.googleapis.com/css?family=Lato&#038;ver=6.7.1'
+      type='text/css' media='all'/>
+<link rel='stylesheet' id='parallaxsome-h5-font-css' href='//fonts.googleapis.com/css?family=Lato&#038;ver=6.7.1'
+      type='text/css' media='all'/>
+<link rel='stylesheet' id='parallaxsome-h6-font-css' href='//fonts.googleapis.com/css?family=Lato&#038;ver=6.7.1'
+      type='text/css' media='all'/>
+<link rel='stylesheet' id='parallaxsome-hm_sec_title-font-css'
+      href='//fonts.googleapis.com/css?family=BenchNine&#038;ver=6.7.1' type='text/css' media='all'/>
+<link rel='stylesheet' id='parallaxsome-hm_sec_subtitle-font-css'
+      href='//fonts.googleapis.com/css?family=BenchNine&#038;ver=6.7.1' type='text/css' media='all'/>
+<link rel='stylesheet' id='font-awesome-4-shim-css'
+      href='https://i4twins.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.26.3'
+      type='text/css' media='all'/>
+<script type="text/javascript" data-cfasync="false"
+        src="https://i4twins.com/wp-content/plugins/royal-elementor-addons/assets/js/lib/isotope/isotope.min.js?ver=3.0.8"
+        id="wpr-isotope-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/royal-elementor-addons/assets/js/lib/slick/slick.min.js?ver=1.8.1"
+        id="wpr-slick-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/royal-elementor-addons/assets/js/lib/lightgallery/lightgallery.min.js?ver=1.6.12"
+        id="wpr-lightgallery-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/royal-elementor-addons/assets/js/lib/particles/particles.js?ver=3.0.6"
+        id="wpr-particles-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/royal-elementor-addons/assets/js/lib/jarallax/jarallax.min.js?ver=1.12.7"
+        id="wpr-jarallax-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/royal-elementor-addons/assets/js/lib/parallax/parallax.min.js?ver=1.0"
+        id="wpr-parallax-hover-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/metform/public/assets/lib/cute-alert/cute-alert.js?ver=3.9.2"
+        id="cute-alert-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/lightslider/js/lightslider.min.js?ver=1.1.3"
+        id="lightslider-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/bxSlider/js/jquery.bxslider.min.js?ver=4.1.2"
+        id="jquery-bxslider-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/counterup/js/jquery.counterup.min.js?ver=1.0"
+        id="jquery-counterup-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/waypoints/js/jquery.waypoints.min.js?ver=2.0.5"
+        id="jquery-waypoints-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/jquery-nav/js/jquery.nav.js?ver=2.2.0"
+        id="jquery-nav-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/jquery-scrollTo/js/jquery.scrollTo.js?ver=2.1.1"
+        id="jquery-scrollTo-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/prettyphoto/js/jquery.prettyPhoto.js?ver=3.1.6"
+        id="jquery-prettyPhoto-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/parallax-js/js/parallax.min.js?ver=1.4.2"
+        id="parallax-js"></script>
+<script type="text/javascript" src="https://i4twins.com/wp-content/themes/parallaxsome/assets/js/wow.min.js?ver=1.1.2"
+        id="wow-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/js/custom-scripts.js?ver=1.3.6"
+        id="parallaxsome-custom-scripts-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/jquery-sticky/js/jquery.sticky.js?ver=1.0.2"
+        id="jquery-sticky-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/themes/parallaxsome/assets/library/jquery-sticky/js/sticky-setting.js?ver=1.0.0"
+        id="parallaxsome-sticky-setting-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.26.3"
+        id="font-awesome-4-shim-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.26.3"
+        id="elementor-webpack-runtime-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.26.3"
+        id="elementor-frontend-modules-js"></script>
+<script type="text/javascript" src="https://i4twins.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3"
+        id="jquery-ui-core-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+    /* <![CDATA[ */
+    var elementorFrontendConfig = {
+        "environmentMode": {"edit": false, "wpPreview": false, "isScriptDebug": false},
+        "i18n": {
+            "shareOnFacebook": "Share on Facebook",
+            "shareOnTwitter": "Share on Twitter",
+            "pinIt": "Pin it",
+            "download": "Download",
+            "downloadImage": "Download image",
+            "fullscreen": "Fullscreen",
+            "zoom": "Zoom",
+            "share": "Share",
+            "playVideo": "Play Video",
+            "previous": "Previous",
+            "next": "Next",
+            "close": "Close",
+            "a11yCarouselPrevSlideMessage": "Previous slide",
+            "a11yCarouselNextSlideMessage": "Next slide",
+            "a11yCarouselFirstSlideMessage": "This is the first slide",
+            "a11yCarouselLastSlideMessage": "This is the last slide",
+            "a11yCarouselPaginationBulletMessage": "Go to slide"
+        },
+        "is_rtl": false,
+        "breakpoints": {"xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600},
+        "responsive": {
+            "breakpoints": {
+                "mobile": {
+                    "label": "Mobile Portrait",
+                    "value": 767,
+                    "default_value": 767,
+                    "direction": "max",
+                    "is_enabled": true
+                },
+                "mobile_extra": {
+                    "label": "Mobile Landscape",
+                    "value": 880,
+                    "default_value": 880,
+                    "direction": "max",
+                    "is_enabled": false
+                },
+                "tablet": {
+                    "label": "Tablet Portrait",
+                    "value": 1024,
+                    "default_value": 1024,
+                    "direction": "max",
+                    "is_enabled": true
+                },
+                "tablet_extra": {
+                    "label": "Tablet Landscape",
+                    "value": 1200,
+                    "default_value": 1200,
+                    "direction": "max",
+                    "is_enabled": false
+                },
+                "laptop": {
+                    "label": "Laptop",
+                    "value": 1366,
+                    "default_value": 1366,
+                    "direction": "max",
+                    "is_enabled": false
+                },
+                "widescreen": {
+                    "label": "Widescreen",
+                    "value": 2400,
+                    "default_value": 2400,
+                    "direction": "min",
+                    "is_enabled": false
+                }
+            },
+            "hasCustomBreakpoints": false
+        },
+        "version": "3.26.3",
+        "is_static": false,
+        "experimentalFeatures": {
+            "additional_custom_breakpoints": true,
+            "e_swiper_latest": true,
+            "e_nested_atomic_repeaters": true,
+            "e_onboarding": true,
+            "e_css_smooth_scroll": true,
+            "home_screen": true,
+            "landing-pages": true,
+            "nested-elements": true,
+            "editor_v2": true,
+            "link-in-bio": true,
+            "floating-buttons": true
+        },
+        "urls": {
+            "assets": "https:\/\/i4twins.com\/wp-content\/plugins\/elementor\/assets\/",
+            "ajaxurl": "https:\/\/i4twins.com\/wp-admin\/admin-ajax.php",
+            "uploadUrl": "https:\/\/i4twins.com\/wp-content\/uploads"
+        },
+        "nonces": {"floatingButtonsClickTracking": "ae7bd6d4eb"},
+        "swiperClass": "swiper",
+        "settings": {"page": [], "editorPreferences": []},
+        "kit": {
+            "active_breakpoints": ["viewport_mobile", "viewport_tablet"],
+            "global_image_lightbox": "yes",
+            "lightbox_enable_counter": "yes",
+            "lightbox_enable_fullscreen": "yes",
+            "lightbox_enable_zoom": "yes",
+            "lightbox_enable_share": "yes",
+            "lightbox_title_src": "title",
+            "lightbox_description_src": "description"
+        },
+        "post": {
+            "id": 6220,
+            "title": "i4Twins%20-%20IIoT%20No-Code%20Platform",
+            "excerpt": "",
+            "featuredImage": "https:\/\/i4twins.com\/wp-content\/uploads\/2021\/01\/i4twins-v2.svg"
+        }
+    };
+    /* ]]> */
+</script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.26.3"
+        id="elementor-frontend-js"></script>
+<script type="text/javascript" id="wpr-addons-js-js-extra">
+    /* <![CDATA[ */
+    var WprConfig = {
+        "ajaxurl": "https:\/\/i4twins.com\/wp-admin\/admin-ajax.php",
+        "resturl": "https:\/\/i4twins.com\/wp-json\/wpraddons\/v1",
+        "nonce": "79c7800fef",
+        "addedToCartText": "was added to cart",
+        "viewCart": "View Cart",
+        "comparePageID": "",
+        "comparePageURL": "https:\/\/i4twins.com\/",
+        "wishlistPageID": "",
+        "wishlistPageURL": "https:\/\/i4twins.com\/",
+        "chooseQuantityText": "Please select the required number of items.",
+        "site_key": "",
+        "is_admin": "",
+        "input_empty": "Please fill out this field",
+        "select_empty": "Nothing selected",
+        "file_empty": "Please upload a file",
+        "recaptcha_error": "Recaptcha Error",
+        "token": "be8512969fa951a437df0692a08498ff551c537b8a8c80bd0572b25abee0046e"
+    };
+    /* ]]> */
+</script>
+<script type="text/javascript" data-cfasync="false"
+        src="https://i4twins.com/wp-content/plugins/royal-elementor-addons/assets/js/frontend.min.js?ver=1.7.1006"
+        id="wpr-addons-js-js"></script>
+<script type="text/javascript"
+        src="https://i4twins.com/wp-content/plugins/royal-elementor-addons/assets/js/modal-popups.min.js?ver=1.7.1006"
+        id="wpr-modal-popups-js-js"></script>

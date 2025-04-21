@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+
+{% block title %}{{ chat.name }} - چت{% endblock %}
+
+{% block body %}
+
+    <a href="{% url 'chat_content_json' chat.id %}">جیسون</a>
+
+<form method="post">
+    {% csrf_token %}
+    <textarea name="query" placeholder="سوال خود را وارد کنید"></textarea>
+    <button type="submit">ارسال</button>
+</form>
+
+{% if response %}
+    <h2>پاسخ:</h2>
+    <pre>{{ response }}</pre>
+{% endif %}
+
+<div class="bg-gray-100">
+        <div class="container mx-auto p-4">
+            <h1 class="text-3xl font-semibold mb-4">{{ chat.name }}</h1>
+
+
+            <h3 class="text-3xl font-semibold mb-4">راستی آزمایی فایل ها و یو ار ال های موجود</h3>
+            {% if chat.files.all %}
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold">فایل‌های آپلود شده</h2>
+                    {% for file in chat.files.all %}
+                        <a href="{{ file.file.url }}" class="text-blue-500" download>{{ file.file.name }}</a>
+                        <br>
+                        {% if file.pdf_content %}
+                            <p><strong>PDF Content:</strong></p>
+                            <pre>{{ file.pdf_content }}</pre>
+                        {% endif %}
+                        {% if file.excel_content %}
+                            <p><strong>Excel Content:</strong></p>
+                            <pre>{{ file.excel_content }}</pre>
+                        {% endif %}
+                        <br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if chat.urls.all %}
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold">لینک‌ها</h2>
+                    {% for url in chat.urls.all %}
+                        <a href="{{ url.url }}" class="text-blue-500" target="_blank">{{ url.url }}</a>
+                        <br>
+                        {{ url.content }}
+                        <br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
